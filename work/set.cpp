@@ -6,6 +6,8 @@
 #include <vector>
 #include <algorithm>
 
+
+
 using namespace std;
 
 class setSolution
@@ -16,8 +18,65 @@ private:
 
 public:
     // 构造函数
+    // 默认构造函数
+    setSolution(){
+
+    }
+
+    // vector构造函数
+    setSolution(const vector<int>& elements){
+        for (const int& elem : elements){
+            mySet.insert(elem);
+        }
+    }
+
+    // unordered_set构造函数
+    setSolution(const unordered_set<int>& otherSet){
+        mySet = otherSet;
+    }
 
     // 成员函数
+
+    // 通过键盘添加元素
+    void addElementsFromKeyboard(){
+
+    }
+
+    // 添加单个元素
+    void addSingleElement(int element){
+        mySet.insert(element);
+    }
+    
+    // 获取集合
+    static setSolution getSet(){
+        setSolution newSet;
+        newSet.addElementsFromKeyboard();
+        return newSet;
+    }
+
+    vector<int> getVec(){
+        vector<int> elements(mySet.begin(),mySet.end());
+        sort(elements.begin(),elements.end());
+        return elements;
+    }
+
+    void initializeSets(const vector<int>& elementsA, const vector<int>& elementsB, unordered_set<int>& setA, unordered_set<int>& setB){
+        for (const int& elem : elementsA){
+            setA.insert(elem);
+        }
+        for (const int& elem : elementsB){
+            setB.insert(elem);
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     // 求两个集合的交、并和差集
 
